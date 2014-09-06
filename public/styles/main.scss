@@ -1,5 +1,12 @@
 @import 'reset';
 @import 'colors';
 @import 'typography';
+@import 'layout';
 
 @import 'base';
+
+@import 'sections/hero_unit';
+@import 'sections/feedback_section';
+@import 'sections/download_section';
+@import 'sections/team_section';
+@import 'sections/footer';
