@@ -1,4 +1,4 @@
-grumble.co
-==========
+[grumble.co](http://grumble.co)
+================================
 
-New static marketing page for Grumble
+The new static marketing site for Grumble.
