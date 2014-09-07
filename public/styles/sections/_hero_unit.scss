@@ -1,5 +1,51 @@
 section.hero {
+  position: relative;
   height: 100vh;
+  overflow: hidden;
 
   text-align: center;
+
+  .header {
+    padding: 50px 0;
+
+    text-align: left;
+
+    .logo-container {
+      display: inline-block;
+      float: left;
+      width: 100px;
+
+      text-align: center;
+
+      .logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      .name {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 24px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .tagline {
+    margin-bottom: 100px;
+  }
+
+  .front-iphone, .back-iphone {
+    position: absolute;
+    width: 70%;
+    max-width: 375px;
+  }
+
+  .front-iphone {
+    z-index: 2;
+  }
+
+  .back-iphone {
+    z-index: 1;
+  }
 }

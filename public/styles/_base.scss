@@ -1,5 +1,21 @@
+html, body {
+  width: 100%;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   background: $white;
   color: $rust;
-  font-family: Helvetica, sans-serif;
+
+  font-family: 'Proxima Nova', Helvetica, sans-serif;
+  font-size: 24px;
 }

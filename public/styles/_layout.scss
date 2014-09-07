@@ -1,5 +1,22 @@
-$full: 40px;
-$half: 20px;
+@import 'vendor/gridle/gridle';
+
+$full-space: 40px;
+$half-space: 20px;
+
+$settings: (
+  context: 12,
+  gutter-width: $half-space,
+  html-states-classes: true
+);
+
+// basic Gridle configuration
+@include gridle_setup($settings);
+
+// register Gridle states
+@include gridle_register_default_mobile_first_states();
+
+// generate Gridle classes
+@include gridle_generate_classes();
 
 .container {
   width: 100%;

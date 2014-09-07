@@ -1,0 +1,30 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: $half-space;
+  text-align: center;
+
+  background: $rust;
+  color: $white;
+  @include border-radius(5px);
+  border-bottom: 8px solid $dark-rust;
+
+  font-family: 'Proxima Nova', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  text-decoration: none;
+
+  &:hover {
+    top: 4px;
+    margin-bottom: 4px;
+
+    border-bottom-width: 4px;
+  }
+
+  &:active {
+    top: 8px;
+    margin-bottom: 8px;
+
+    border-bottom-width: 0px;
+  }
+}

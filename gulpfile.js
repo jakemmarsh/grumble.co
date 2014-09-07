@@ -153,7 +153,7 @@ gulp.task('dev', function() {
   lrserver.listen(livereloadport);
 
   // Clean build directory
-  gulp.start('clean');
+  //gulp.start('clean');
 
   // Run all tasks once
   runSequence('styles', 'fonts', 'browserify', 'assemble');

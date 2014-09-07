@@ -1,4 +1,14 @@
 section.download {
+  padding: 140px 0 80px;
+
   background: $white;
   color: $rust;
+
+  .headline {
+    margin-bottom: 60px;
+  }
+
+  .section-body {
+    margin-bottom: 100px;
+  }
 }

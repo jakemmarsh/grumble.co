@@ -1,4 +1,9 @@
 section.feedback {
+  padding: 140px 0 120px;
   background: $rust;
   color: $white;
+
+  .headline {
+    margin: 0 0 60px;
+  }
 }
