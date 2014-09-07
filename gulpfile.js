@@ -10,7 +10,7 @@ var gulp           = require('gulp'),
     htmlmin        = require('gulp-htmlmin'),
     imagemin       = require('gulp-imagemin'),
     pngcrush       = require('imagemin-pngcrush'),
-    sass           = require('gulp-sass'),
+    sass           = require('gulp-ruby-sass'),
     rename         = require('gulp-rename'),
     refresh        = require('gulp-livereload'),
     lrserver       = require('tiny-lr')(),
@@ -79,7 +79,10 @@ gulp.task('styles', function() {
 
   return gulp.src('public/styles/main.scss')
           // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
-          .pipe(sass({style: 'compressed', onError: function(e) { console.log(e); } }))
+          .pipe(sass({
+            style: 'compressed',
+            sourcemap: false
+          }))
           .pipe(rename({suffix: '.min'}))
           .pipe(gulp.dest('build/css/'))
           .pipe(refresh(lrserver));
@@ -97,6 +100,14 @@ gulp.task('images', function() {
               use: [pngcrush()]
           }))
           .pipe(gulp.dest('build/images'));
+
+});
+
+// Fonts task
+gulp.task('fonts', function() {
+
+  // Copy fonts into build directory
+  gulp.src('public/fonts/**/*').pipe(gulp.dest('build/fonts'));
 
 });
 
@@ -122,6 +133,10 @@ gulp.task('watch', function() {
   gulp.watch(['public/styles/**/*.scss'], [
     'styles'
   ]);
+  // Watch our fonts
+  gulp.watch(['public/fonts/**/*'], [
+    'fonts'
+  ]);
   // Watch our templates, helpers, and data files
   gulp.watch(['public/pages/**/*.hbs', 'public/templates/**/*.hbs', 'public/data/*.json', 'public/helpers/*.js'], [
     'assemble'
@@ -141,7 +156,7 @@ gulp.task('dev', function() {
   gulp.start('clean');
 
   // Run all tasks once
-  runSequence('styles', 'browserify', 'assemble');
+  runSequence('styles', 'fonts', 'browserify', 'assemble');
 
   // Copy images into build directory since we're not compressing
   gulp.src('public/images/**/*').pipe(gulp.dest('build/images'));
@@ -163,6 +178,6 @@ gulp.task('deploy', function() {
 gulp.task('prod', function() {
 
   // Run all tasks
-  runSequence('styles', 'images', 'browserify', 'assemble', 'deploy');
+  runSequence('styles', 'images', 'fonts', 'browserify', 'assemble', 'deploy');
 
 });

@@ -14,7 +14,6 @@
   "devDependencies": {
     "gulp": "^3.8.6",
     "gulp-browserify": "^0.5.0",
-    "gulp-sass": "^0.7.2",
     "gulp-jshint": "^1.8.3",
     "connect-livereload": "^0.4.0",
     "morgan": "^1.2.2",
@@ -29,6 +28,7 @@
     "gulp-imagemin": "^1.0.1",
     "imagemin-pngcrush": "^0.1.0",
     "gulp-clean": "^0.3.1",
-    "run-sequence": "^0.3.6"
+    "run-sequence": "^0.3.6",
+    "gulp-ruby-sass": "^0.7.1"
   }
 }

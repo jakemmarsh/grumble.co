@@ -15,8 +15,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Assemble intermediate directory
-_gh_pages
+.sass-cache
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
