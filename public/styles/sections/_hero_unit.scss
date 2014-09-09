@@ -2,8 +2,12 @@ section.hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
-
   text-align: center;
+
+  color: $white;
+  background-color: $rust;
+  background: url(../images/hero_bg.png) no-repeat center center fixed;
+  @include background-size(cover);
 
   .header {
     padding: 50px 0;
@@ -36,16 +40,19 @@ section.hero {
   }
 
   .front-iphone, .back-iphone {
-    position: absolute;
-    width: 70%;
-    max-width: 375px;
+    position: fixed;
+    bottom: -45%;
   }
 
   .front-iphone {
     z-index: 2;
+    width: 375px;
+    left: 40%;
   }
 
   .back-iphone {
     z-index: 1;
+    width: 300px;
+    left: 27%;
   }
 }

@@ -4,3 +4,18 @@
   -ms-border-radius:     $top $right $bottom $left;
   border-radius:         $top $right $bottom $left;
 }
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition:    $transition-property $transition-time $method;
+  -ms-transition:     $transition-property $transition-time $method;
+  -o-transition:      $transition-property $transition-time $method;
+  transition:         $transition-property $transition-time $method;
+}
+
+@mixin background-size($size) {
+  -webkit-background-size: $size;
+  -moz-background-size:    $size;
+  -o-background-size:      $size;
+  background-size:         $size;
+}

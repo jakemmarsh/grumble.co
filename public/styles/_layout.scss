@@ -24,6 +24,17 @@ $settings: (
   margin: 0 auto;
 }
 
+/* styles that apply all the way up until state `md` */
+@media screen and (max-width: 992px) {
+  section, footer {
+    padding-left: $half-space !important;
+    padding-right: $half-space !important;
+  }
+  .center-md {
+    text-align: center !important;
+  }
+}
+
 .text-left {
   text-align: left;
 }

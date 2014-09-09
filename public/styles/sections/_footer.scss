@@ -1,7 +1,9 @@
 footer {
+  position: relative;
+  z-index: 3;
   padding: $full-space;
 
-  background: $white;
+  background: $light-grey;
   color: $rust;
 
   .connect {
@@ -14,12 +16,19 @@ footer {
     height: 60px;
     line-height: 60px;
 
+
     @include border-radius(100%);
     background: $rust;
     color: $white;
 
     text-align: center;
     text-decoration: none;
-    font-size: 36px;
+    font-size: 34px;
+
+    @include transition(all, 0.2s, ease-in-out);
+
+    &:hover {
+      background: darken($rust, 5);
+    }
   }
 }

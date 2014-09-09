@@ -1,4 +1,7 @@
 section.feedback {
+  position: relative;
+  z-index: 3;
+
   padding: 140px 0 120px;
   background: $rust;
   color: $white;

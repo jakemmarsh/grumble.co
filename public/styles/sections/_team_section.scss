@@ -1,4 +1,6 @@
 section.team {
+  position: relative;
+  z-index: 3;
   padding: 60px 0 100px;
 
   background: $rust;
@@ -9,6 +11,12 @@ section.team {
   }
 
   .team-members {
+    width: 400px; /* dont break 3x3 grid on mobile */
+
+    @include gridle_state(md) {
+      margin-bottom: 20px;
+    }
+
     .member {
       width: 120px;
       height: 120px;
@@ -19,7 +27,9 @@ section.team {
 
       cursor: pointer;
 
-      &.active, &:hover, &:active {
+      @include transition(all, 0.2s, ease-in-out);
+
+      &.focused, &:hover, &:active {
         background: $white;
         color: $rust;
       }
