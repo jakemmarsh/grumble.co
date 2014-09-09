@@ -3,7 +3,7 @@
 var $ = require('jquery');
 var team = require('../data/team.js');
 
-$(document).ready(function() {
+module.exports = function() {
 
   var $container = $('.team-members');
   var $nameContainer = $('.member-name');
@@ -12,33 +12,31 @@ $(document).ready(function() {
   var $currentFocus;
 
   var focusMember = function(teamMember, $element) {
+    if ( $currentFocus ) {
+      $currentFocus.toggleClass('focused');
+    }
+    $element.toggleClass('focused');
+
     $nameContainer.text(teamMember.name);
     $bioContainer.text(teamMember.bio);
+
     $currentFocus = $element;
   };
 
   team.forEach(function(teamMember, index) {
-    var classes  = 'member grid-4';
-    if ( index === 0 ) {
-      classes += ' active';
-      focusMember(teamMember);
-    }
-
     $memberElement = $('<div/>', {
-      class: classes
+      class: 'member grid-4'
     });
-
-    if ( index === 0 ) {
-      $currentFocus = $memberElement;
-    }
 
     $memberElement.click(function() {
-      $currentFocus.toggleClass('active');
-      $(this).toggleClass('active');
       focusMember(teamMember, $(this));
     });
+
+    if ( index === 0 ) {
+      focusMember(teamMember, $memberElement);
+    }
 
     $memberElement.appendTo($container);
   });
 
-});
+};

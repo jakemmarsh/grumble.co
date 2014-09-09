@@ -65,7 +65,20 @@ gulp.task('browserify', function() {
   return gulp.src(['public/js/main.js'])
           .pipe(browserify({
             insertGlobals: true,
-            debug: true
+            debug: true,
+            shim: {
+              jquery: {
+                path: './node_modules/jquery/dist/jquery.min.js',
+                exports: '$'
+              },
+              'jquery-scrollspy': {
+                path: './public/js/lib/jquery-scrollspy.js',
+                exports: null,
+                depends: {
+                  jquery: '$',
+                }
+              }
+            }
           }))
           .pipe(uglify())
           .pipe(rename({suffix: '.min'}))
@@ -81,7 +94,7 @@ gulp.task('styles', function() {
           // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
           .pipe(sass({
             style: 'compressed',
-            sourcemap: false
+            'sourcemap=none': true
           }))
           .pipe(rename({suffix: '.min'}))
           .pipe(gulp.dest('build/css/'))
