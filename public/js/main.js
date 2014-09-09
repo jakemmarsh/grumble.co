@@ -2,19 +2,36 @@
 
 var $ = require('jquery');
 
+var sectionScripts = [
+  require('./hero_unit.js'),
+  require('./feedback_section.js'),
+  require('./understand_section.js'),
+  require('./team_section.js')
+];
+
+var loadSectionScripts = function() {
+  sectionScripts.forEach(function(script) {
+    script();
+  });
+};
+
 $(document).ready(function() {
 
-  // load team members from data file
-  // and create elements
+  // load team members from data file and create elements
   require('./team.js')();
 
-  // per-section scroll logic
-  // only load if not on phone or tablet
-  if (window.matchMedia('(min-width: 992px)').matches) {
-    require('./hero_unit.js')();
-    require('./feedback_section.js')();
-    require('./understand_section.js')();
-    require('./team_section.js')();
+  // conditionally load section-specific scripts
+  if ( window.matchMedia('(min-width: 992px)').matches ) {
+    loadSectionScripts();
+  }
+
+});
+
+$(window).resize(function() {
+
+  // conditionally load section-specific scripts
+  if ( window.matchMedia('(min-width: 992px)').matches ) {
+    loadSectionScripts();
   }
 
 });
