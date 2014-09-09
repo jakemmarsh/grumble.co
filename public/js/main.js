@@ -9,9 +9,12 @@ $(document).ready(function() {
   require('./team.js')();
 
   // per-section scroll logic
-  require('./hero_unit.js')();
-  require('./feedback_section.js')();
-  require('./understand_section.js')();
-  require('./team_section.js')();
+  // only load if not on phone or tablet
+  if (window.matchMedia('(min-width: 992px)').matches) {
+    require('./hero_unit.js')();
+    require('./feedback_section.js')();
+    require('./understand_section.js')();
+    require('./team_section.js')();
+  }
 
 });

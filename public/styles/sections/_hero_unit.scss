@@ -48,3 +48,18 @@ section.hero {
     margin-left: -275px;
   }
 }
+
+/* styles that apply all the way up until state `md` */
+@media screen and (max-width: 992px) {
+  section.hero {
+    .header {
+      .logo-container {
+        float: none;
+      }
+    }
+    .hero-iphones {
+      width: 300px;
+      margin-left: -150px;
+    }
+  }
+}

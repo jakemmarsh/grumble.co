@@ -21,3 +21,14 @@ section.feedback {
     }
   }
 }
+
+/* styles that apply all the way up until state `md` */
+@media screen and (max-width: 992px) {
+  section.feedback {
+    img.feedback-iphone {
+      width: 90%;
+
+      @include translate-x(0);
+    }
+  }
+}

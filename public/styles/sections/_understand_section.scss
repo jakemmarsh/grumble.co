@@ -26,3 +26,15 @@ section.understand {
     }
   }
 }
+
+/* styles that apply all the way up until state `md` */
+@media screen and (max-width: 992px) {
+  section.understand {
+    img.understand-imac {
+      width: 90%;
+      margin-left: 0;
+
+      @include translate-x(0);
+    }
+  }
+}

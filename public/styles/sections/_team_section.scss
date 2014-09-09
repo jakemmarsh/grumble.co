@@ -11,12 +11,6 @@ section.team {
   }
 
   .team-members {
-    width: 400px; /* dont break 3x3 grid on mobile */
-
-    @include gridle_state(md) {
-      margin-bottom: 20px;
-    }
-
     .member {
       width: 120px;
       height: 120px;
@@ -38,5 +32,19 @@ section.team {
 
   .member-name {
     margin-bottom: $full-space;
+  }
+}
+
+/* styles that apply all the way up until state `md` */
+@media screen and (max-width: 992px) {
+  section.team {
+    .team-members {
+      margin-bottom: 20px;
+
+      .member {
+        width: 75px;
+        height: 75px;
+      }
+    }
   }
 }
