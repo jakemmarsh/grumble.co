@@ -19,3 +19,27 @@
   -o-background-size:      $size;
   background-size:         $size;
 }
+
+@mixin translate-x($distance){
+  -webkit-transform: translateX($distance);
+  -moz-transform:    translateX($distance);
+  -o-transform:      translateX($distance);
+  -ms-transform:     translateX($distance);
+  transform:         translateX($distance);
+}
+
+@mixin translate-y($distance) {
+  -webkit-transform: translateY($distance);
+  -moz-transform:    translateY($distance);
+  -o-transform:      translateY($distance);
+  -ms-transform:     translateY($distance);
+  transform:         translateY($distance);
+}
+
+@mixin scale($proportion) {
+  -webkit-transform: scale($proportion);
+  -moz-transform:    scale($proportion);
+  -o-transform:      scale($proportion);
+  -ms-transform:     scale($proportion);
+  transform:         scale($proportion);
+}

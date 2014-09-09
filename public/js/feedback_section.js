@@ -10,12 +10,16 @@ module.exports = function() {
 
   $iphone.scrollspy({
 
-    min: $section.offset().top,
+    min: $section.offset().top - 300,
     max: $section.offset().top + $section.height(),
 
     onEnter: function() {
-      console.log('inside feedback section');
+      $iphone.addClass('visible');
     }
+
+    // onLeave: function() {
+    //   $iphone.removeClass('visible');
+    // }
 
   });
 

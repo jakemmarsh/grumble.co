@@ -10,12 +10,16 @@ module.exports = function() {
 
   $imac.scrollspy({
 
-    min: $section.offset().top,
+    min: $section.offset().top - 300,
     max: $section.offset().top + $section.height(),
 
     onEnter: function() {
-      console.log('inside understand section');
+      $imac.addClass('visible');
     }
+
+    // onLeave: function() {
+    //   $imac.removeClass('visible');
+    // }
 
   });
 

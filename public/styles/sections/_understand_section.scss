@@ -13,4 +13,16 @@ section.understand {
   .section-body {
     margin-bottom: 100px;
   }
+
+  .understand-imac {
+    width: 140%;
+    margin-left: -17%;
+
+    @include transition(transform, 0.4s, ease-in);
+    @include translate-x(-1000px);
+
+    &.visible {
+      @include translate-x(0);
+    }
+  }
 }
