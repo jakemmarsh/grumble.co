@@ -42,13 +42,6 @@ server.use(express.static('./build'));
   Gulp Tasks
  ***********************************************/
 
- gulp.task('clean', function() {
-
-  return gulp.src('build/', {read: false})
-          .pipe(clean());
-
- });
-
 // JSHint task
 gulp.task('lint', function() {
 
@@ -135,6 +128,17 @@ gulp.task('assemble', function() {
 
 });
 
+// Copy icons task
+gulp.task('icons', function() {
+
+  // Copy apple-touch-icon files
+  gulp.src('./*.png').pipe(gulp.dest('build/'));
+
+  // Copy favicon
+  gulp.src('./favicon.ico').pipe(gulp.dest('build/'));
+
+});
+
 gulp.task('watch', function() {
 
   // Watch our scripts
@@ -154,6 +158,10 @@ gulp.task('watch', function() {
   gulp.watch(['public/pages/**/*.hbs', 'public/templates/**/*.hbs', 'public/data/*.json', 'public/helpers/*.js'], [
     'assemble'
   ]);
+  // Watch our apple-touch-icons and favicon
+  gulp.watch(['./*.png', './favicon.ico'], [
+    'icons'
+  ]);
 
 });
 
@@ -165,11 +173,8 @@ gulp.task('dev', function() {
   // Start live reload
   lrserver.listen(livereloadport);
 
-  // Clean build directory
-  //gulp.start('clean');
-
   // Run all tasks once
-  runSequence('styles', 'fonts', 'browserify', 'assemble');
+  runSequence('styles', 'fonts', 'browserify', 'assemble', 'icons');
 
   // Copy images into build directory since we're not compressing
   gulp.src('public/images/**/*').pipe(gulp.dest('build/images'));
@@ -179,18 +184,10 @@ gulp.task('dev', function() {
 
 });
 
-
-// Deploy task
-gulp.task('deploy', function() {
-
-  // Deploy to your hosting setup
-
-});
-
 // Production task
 gulp.task('prod', function() {
 
   // Run all tasks
-  runSequence('styles', 'images', 'fonts', 'browserify', 'assemble', 'deploy');
+  runSequence('styles', 'images', 'fonts', 'browserify', 'assemble', 'icons');
 
 });
