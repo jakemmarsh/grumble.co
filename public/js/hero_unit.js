@@ -19,15 +19,13 @@ module.exports = function() {
       opacity = 1 - (position.top - this.min)/800;
       scale = 1 - (position.top - this.min)/1500;
 
-      console.log(opacity, scale);
-
       $phones.css({
-        'opacity': opacity,
         '-webkit-transform': 'scale(' + scale + ')',
-        '-moz-transform': 'scale(' + scale + ')',
-        '-o-transform': 'scale(' + scale + ')',
-        '-ms-transform': 'scale(' + scale + ')',
-        'transform': 'scale(' + scale + ')'
+        '-moz-transform':    'scale(' + scale + ')',
+        '-ms-transform':     'scale(' + scale + ')',
+        '-o-transform':      'scale(' + scale + ')',
+        'transform':         'scale(' + scale + ')',
+        'opacity':            opacity
       });
     },
 

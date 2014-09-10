@@ -9,8 +9,8 @@ var sectionScripts = [
   require('./team_section.js')
 ];
 
-var loadSectionScripts = function() {
-  sectionScripts.forEach(function(script) {
+var loadScripts = function(scripts) {
+  scripts.forEach(function(script) {
     script();
   });
 };
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
   // conditionally load section-specific scripts
   if ( window.matchMedia('(min-width: 992px)').matches ) {
-    loadSectionScripts();
+    loadScripts(sectionScripts);
   }
 
 });
@@ -31,7 +31,7 @@ $(window).resize(function() {
 
   // conditionally load section-specific scripts
   if ( window.matchMedia('(min-width: 992px)').matches ) {
-    loadSectionScripts();
+    loadScripts(sectionScripts);
   }
 
 });
