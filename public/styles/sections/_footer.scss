@@ -1,7 +1,7 @@
 footer {
   position: relative;
   z-index: 3;
-  padding: $full-space;
+  padding: $full-space 0;
 
   background: $light-grey;
   color: $rust;
@@ -9,26 +9,13 @@ footer {
   .connect {
     margin-bottom: 30px;
   }
+}
 
-  .icon {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-
-
-    @include border-radius(100%);
-    background: $rust;
-    color: $white;
-
-    text-align: center;
-    text-decoration: none;
-    font-size: 34px;
-
-    @include transition(all, 0.2s, ease-in-out);
-
-    &:hover {
-      background: darken($rust, 5);
+/* styles that apply all the way up until state `md` */
+@media screen and (max-width: 992px) {
+  footer {
+    .connect {
+      display: none;
     }
   }
 }
