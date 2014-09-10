@@ -1,6 +1,18 @@
 @import 'vendor/font-awesome/font-awesome';
 
 @font-face {
+    font-family: 'Bebas Neue';
+    src: url('../fonts/bebasneue-webfont.eot');
+    src: url('../fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bebasneue-webfont.woff2') format('woff2'),
+         url('../fonts/bebasneue-webfont.woff') format('woff'),
+         url('../fonts/bebasneue-webfont.ttf') format('truetype'),
+         url('../fonts/bebasneue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Museo Slab';
     src: url('../fonts/Museo_Slab_500_2-webfont.eot');
     src: url('../fonts/Museo_Slab_500_2-webfont.eot?#iefix') format('embedded-opentype'),
@@ -37,4 +49,15 @@ h2 {
 
 h3 {
   font-size: 24px;
+}
+
+/* styles that apply all the way up until state `md` */
+@media screen and (max-width: 992px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
 }
