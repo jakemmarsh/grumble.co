@@ -28,7 +28,7 @@ section.hero {
 
       .name {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 24px;
+        font-size: 32px;
         letter-spacing: 1px;
         text-transform: uppercase;
       }
@@ -43,7 +43,7 @@ section.hero {
     z-index: 1;
     position: fixed;
     width: 550px;
-    bottom: -50%;
+    top: 325px;
     left: 50%;
     margin-left: -275px;
   }
@@ -60,6 +60,7 @@ section.hero {
     .hero-iphones {
       width: 300px;
       margin-left: -150px;
+      top: 375px;
     }
   }
 }

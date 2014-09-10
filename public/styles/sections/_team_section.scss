@@ -38,8 +38,14 @@ section.team {
 /* styles that apply all the way up until state `md` */
 @media screen and (max-width: 992px) {
   section.team {
+    padding: 100px 0;
+
+    .headline {
+      margin-bottom: 60px;
+    }
+
     .team-members {
-      margin-bottom: 20px;
+      margin-bottom: $full-space;
 
       .member {
         width: 75px;

@@ -15,10 +15,10 @@ section.understand {
   }
 
   .understand-imac {
-    width: 140%;
+    width: 140%; /* overflow grid on purpose */
     margin-left: -17%;
 
-    @include transition(transform, 0.4s, ease-in);
+    @include transform-transition(0s, ease-in);
     @include translate-x(-1000px);
 
     &.visible {
@@ -30,9 +30,15 @@ section.understand {
 /* styles that apply all the way up until state `md` */
 @media screen and (max-width: 992px) {
   section.understand {
+    padding: 100px 0;
+
+    .section-body {
+      margin-bottom: 60px;
+    }
+
     img.understand-imac {
-      width: 90%;
-      margin-left: 0;
+      width: 100%;
+      margin: 0 0 60px;
 
       @include translate-x(0);
     }

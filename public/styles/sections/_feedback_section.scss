@@ -13,7 +13,7 @@ section.feedback {
   img.feedback-iphone {
     width: 120%; /* overflow grid on purpose */
 
-    @include transition(transform, 0.4s, ease-in);
+    @include transform-transition(0s, ease-in);
     @include translate-x(1000px);
 
     &.visible {
@@ -25,8 +25,11 @@ section.feedback {
 /* styles that apply all the way up until state `md` */
 @media screen and (max-width: 992px) {
   section.feedback {
+    padding: 100px 0;
+
     img.feedback-iphone {
-      width: 90%;
+      width: 100%;
+      margin-bottom: 60px;
 
       @include translate-x(0);
     }
