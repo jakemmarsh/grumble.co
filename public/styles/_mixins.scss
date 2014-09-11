@@ -42,6 +42,22 @@
   transform:         translateY($distance);
 }
 
+@mixin translate-z($distance) {
+  -webkit-transform: translateZ($distance);
+  -moz-transform:    translateZ($distance);
+  -o-transform:      translateZ($distance);
+  -ms-transform:     translateZ($distance);
+  transform:         translateZ($distance);
+}
+
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x,$y,$z);
+  -moz-transform:    translate3d($x,$y,$z);
+  -o-transform:      translate3d($x,$y,$z);
+  -ms-transform:     translate3d($x,$y,$z);
+  transform:         translate3d($x,$y,$z);
+}
+
 @mixin scale($proportion) {
   -webkit-transform: scale($proportion);
   -moz-transform:    scale($proportion);
