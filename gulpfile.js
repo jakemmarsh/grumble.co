@@ -1,8 +1,8 @@
 'use strict';
 
 var gulp           = require('gulp'),
+    gulpif         = require('gulp-if'),
     runSequence    = require('run-sequence'),
-    clean          = require('gulp-clean'),
     jshint         = require('gulp-jshint'),
     browserify     = require('gulp-browserify'),
     uglify         = require('gulp-uglify'),
@@ -18,7 +18,8 @@ var gulp           = require('gulp'),
     express        = require('express'),
     livereload     = require('connect-livereload'),
     livereloadport = 35728,
-    serverport     = 3000;
+    serverport     = 3000,
+    isProd         = false;
 
 var assembleOptions = {
   data:      'public/data/**/*.json',
@@ -73,7 +74,7 @@ gulp.task('browserify', function() {
               }
             }
           }))
-          .pipe(uglify())
+          .pipe(gulpif(isProd, uglify()))
           .pipe(rename({suffix: '.min'}))
           .pipe(gulp.dest('build/js'))
           .pipe(refresh(lrserver));
@@ -86,7 +87,7 @@ gulp.task('styles', function() {
   return gulp.src('public/styles/main.scss')
           // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
           .pipe(sass({
-            style: 'compressed',
+            style: isProd ? 'compressed' : 'expanded',
             'sourcemap=none': true
           }))
           .pipe(rename({suffix: '.min'}))
@@ -105,6 +106,7 @@ gulp.task('images', function() {
               svgoPlugins: [{removeViewBox: false}],
               use: [pngcrush()]
           }))
+          .pipe(gulp.dest('public/images'))
           .pipe(gulp.dest('build/images'));
 
 });
@@ -123,7 +125,7 @@ gulp.task('assemble', function() {
   // Run assemble on static pages
   return gulp.src('./public/pages/**/*.hbs')
           .pipe(assemble(assembleOptions))
-          .pipe(htmlmin())
+          .pipe(gulpif(isProd, htmlmin()))
           .pipe(gulp.dest('build/'));
 
 });
@@ -168,6 +170,8 @@ gulp.task('watch', function() {
 // Dev task
 gulp.task('dev', function() {
 
+  isProd = false;
+
   // Start webserver
   server.listen(serverport);
   // Start live reload
@@ -186,6 +190,8 @@ gulp.task('dev', function() {
 
 // Production task
 gulp.task('prod', function() {
+
+  isProd = true;
 
   // Run all tasks
   runSequence('styles', 'images', 'fonts', 'browserify', 'assemble', 'icons');
