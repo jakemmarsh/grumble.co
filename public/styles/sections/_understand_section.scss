@@ -1,6 +1,5 @@
 section.understand {
   position: relative;
-  @include translate3d(0, 0, 0); /* to fix issue with position: fixed and z-index on mobile safari */
   z-index: 3;
   padding: 140px 0 80px;
 
