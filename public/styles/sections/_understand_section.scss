@@ -12,17 +12,21 @@ section.understand {
 
   .section-body {
     margin-bottom: 100px;
-  }
 
-  .understand-imac {
-    width: 140%; /* overflow grid on purpose */
-    margin-left: -17%;
+    img.understand-imac {
+      width: 140%; /* overflow grid on purpose */
+      margin-left: -17%;
 
-    @include transform-transition(0s, ease-in);
-    @include translate-x(-1000px);
+      @include transform-transition(0s, ease-in);
+      @include translate-x(-1000px);
 
-    &.visible {
-      @include translate-x(0);
+      &.visible {
+        @include translate-x(0);
+      }
+    }
+
+    .section-body-text {
+      padding-left: $full-space;
     }
   }
 }
@@ -34,13 +38,17 @@ section.understand {
 
     .section-body {
       margin-bottom: 60px;
-    }
 
-    img.understand-imac {
-      width: 100%;
-      margin: 0 0 60px;
+      img.understand-imac {
+        width: 100%;
+        margin: 0 0 60px;
 
-      @include translate-x(0);
+        @include translate-x(0);
+      }
+
+      .section-body-text {
+        padding-left: 10px;
+      }
     }
   }
 }

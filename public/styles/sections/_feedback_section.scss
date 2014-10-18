@@ -10,14 +10,18 @@ section.feedback {
     margin: 0 0 60px;
   }
 
-  img.feedback-iphone {
-    width: 120%; /* overflow grid on purpose */
+  .section-body {
+    margin-bottom: 100px;
 
-    @include transform-transition(0s, ease-in);
-    @include translate-x(1000px);
+    .section-body-text {
+      padding-right: $full-space;
+    }
 
-    &.visible {
-      @include translate-x(0);
+    img.feedback-iphone {
+      width: 120%; /* overflow grid on purpose */
+
+      @include transform-transition(0s, ease-in);
+      @include translate-x(1000px);
     }
   }
 }
@@ -27,11 +31,19 @@ section.feedback {
   section.feedback {
     padding: 100px 0;
 
-    img.feedback-iphone {
-      width: 100%;
+    .section-body {
       margin-bottom: 60px;
 
-      @include translate-x(0);
+      .section-body-text {
+        padding-right: 10px;
+      }
+
+      img.feedback-iphone {
+        width: 100%;
+        margin-bottom: 60px;
+
+        @include translate-x(0);
+      }
     }
   }
 }

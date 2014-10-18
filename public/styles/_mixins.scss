@@ -5,6 +5,19 @@
   border-radius:         $top $right $bottom $left;
 }
 
+@mixin background-size($size) {
+  -webkit-background-size: $size;
+  -moz-background-size:    $size;
+  -o-background-size:      $size;
+  background-size:         $size;
+}
+
+@mixin background-cover() {
+  @include background-size(cover);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 @mixin transition($transition-property, $transition-time, $method) {
   -webkit-transition: $transition-property $transition-time $method;
   -moz-transition:    $transition-property $transition-time $method;

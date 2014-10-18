@@ -99,14 +99,14 @@ gulp.task('styles', function() {
 // Images task
 gulp.task('images', function() {
 
-  // Run imagemin task on all images
+  // Run imagemin task on all images if prod,
+  // otherwise just copy them over
   return gulp.src('public/images/**/*')
-          .pipe(imagemin({
+          .pipe(gulpif(isProd, imagemin({
               progressive: true,
               svgoPlugins: [{removeViewBox: false}],
               use: [pngcrush()]
-          }))
-          .pipe(gulp.dest('public/images'))
+          })))
           .pipe(gulp.dest('build/images'));
 
 });
@@ -178,10 +178,7 @@ gulp.task('dev', function() {
   lrserver.listen(livereloadport);
 
   // Run all tasks once
-  runSequence('styles', 'fonts', 'browserify', 'assemble', 'icons');
-
-  // Copy images into build directory since we're not compressing
-  gulp.src('public/images/**/*').pipe(gulp.dest('build/images'));
+  runSequence('styles', 'images', 'fonts', 'browserify', 'assemble', 'icons');
 
   // Then, run the watch task to keep tabs on changes
   gulp.start('watch');

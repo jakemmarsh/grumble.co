@@ -4,15 +4,24 @@
   padding: $half-space;
   text-align: center;
 
-  background: $rust;
-  color: $white;
   @include border-radius(5px);
-  border-bottom: 8px solid $dark-rust;
 
   font-family: 'Proxima Nova', sans-serif;
   font-weight: bold;
   font-size: 36px;
   text-decoration: none;
+
+  &.rust {
+    background: $rust;
+    color: $white;
+    border-bottom: 8px solid $dark-rust;
+  }
+
+  &.white {
+    background: $white;
+    color: $rust;
+    border-bottom: 8px solid $grey;
+  }
 
   &:hover {
     top: 4px;
